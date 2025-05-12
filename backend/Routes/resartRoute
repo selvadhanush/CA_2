@@ -1,0 +1,45 @@
+const express=require('express');
+const mongoose=require('mongoose');
+const router=express();
+const menu=require('./Models/infoSchema');
+
+router.post("/",async(req,res)=>{
+    const menu=req.body;
+    console.log(res);
+    
+})
+
+router.get("/",async(req,res)=>{
+    try{
+    const menu=req.body;
+    res.json()
+    }catch{
+        console.log(err);
+        
+    }
+})
+
+router.get("/:id",async(req,res)=>{
+    const menu=req.body;
+    menu=findByID(req.params);
+})
+
+router.put("/:id",async(req,res)=>{
+    try{
+    const Updatemenu=req.params;
+    Updatemenu=findByIDUpdate(req.params.id)
+    }catch{
+        console.log(err);
+        
+    }
+})
+
+router.delete("/:id",async(req,res)=>{
+    try{
+        const deletee=req.params;
+        deletee=findByIDDelete(req.body.findByIDDelete)
+    }catch{
+        console.log(err);
+        
+    }
+})
